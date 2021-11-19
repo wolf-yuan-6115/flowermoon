@@ -1,0 +1,84 @@
+/////////////////////////////////////////////////////////
+// Config for the JMusicBot                            //
+/////////////////////////////////////////////////////////
+// Any line starting with // is ignored                //
+// You MUST set the token and owner                    //
+// All other items have defaults if you don't set them //
+// Open in Notepad++ for best results                  //
+/////////////////////////////////////////////////////////
+
+
+// This sets the token for the bot to log in with
+// This MUST be a bot token (user tokens will not work)
+// If you don't know how to get a bot token, please see the guide here:
+// https://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token
+
+token = ${BOT_TOKEN}
+
+owner = 669194742218752070
+
+prefix = "@mention"
+
+game = "Playing Beta!"
+
+status = IDLE
+
+songinstatus=false
+
+success = "🎶"
+warning = "💡"
+error = "🚫"
+loading = "⌚"
+searching = "🔎"
+
+help = help
+
+npimages = true
+
+stayinchannel = false
+
+maxtime = 0
+
+alonetimeuntilstop = 10
+
+playlistsfolder = "Playlists"
+
+updatealerts=false
+
+lyrics.default = "A-Z Lyrics"
+
+aliases {
+  // General commands
+  settings = [ status ]
+
+  // Music commands
+  lyrics = []
+  nowplaying = [ np, current ]
+  play = []
+  playlists = [ pls ]
+  queue = [ list ]
+  remove = [ delete ]
+  scsearch = []
+  search = [ ytsearch ]
+  shuffle = []
+  skip = [ voteskip ]
+
+  // Admin commands
+  prefix = [ setprefix ]
+  setdj = []
+  settc = []
+  setvc = []
+
+  // DJ Commands
+  forceremove = [ forcedelete, modremove, moddelete ]
+  forceskip = [ modskip ]
+  movetrack = [ move ]
+  pause = []
+  playnext = []
+  repeat = []
+  skipto = [ jumpto ]
+  stop = []
+  volume = [ vol ]
+}
+
+eval=false
