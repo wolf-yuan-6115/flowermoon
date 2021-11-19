@@ -1,1 +1,1 @@
-worker: java -jar target/JMusicBot-Snapshot.jar
+worker: java -jar target/JMusicBot-Snapshot-All.jar
