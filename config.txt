@@ -25,7 +25,7 @@ status = IDLE
 
 songinstatus=false
 
-altprefix = "m!"
+altprefix = "m?"
 
 success = "🎶"
 warning = "💡"
