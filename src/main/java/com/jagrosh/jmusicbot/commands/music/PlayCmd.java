@@ -127,7 +127,7 @@ public class PlayCmd extends MusicCommand
                         .setAction(re ->
                         {
                             if(re.getName().equals(LOAD))
-                                m.editMessage(addMsg+"\n"+event.getClient().getSuccess()+" Loaded **"+loadPlaylist(playlist, track)+"** additional tracks!").queue();
+                                m.editMessage(addMsg+"\n"+event.getClient().getSuccess()+" 載入 **"+loadPlaylist(playlist, track)+"** 首歌!").queue();
                             else
                                 m.editMessage(addMsg).queue();
                         }).setFinalAction(m ->
@@ -180,9 +180,9 @@ public class PlayCmd extends MusicCommand
                 }
                 else
                 {
-                    m.editMessage(FormatUtil.filter(event.getClient().getSuccess()+" Found "
-                            +(playlist.getName()==null?"a playlist":"playlist **"+playlist.getName()+"**")+" with `"
-                            + playlist.getTracks().size()+"` entries; added to the queue!"
+                    m.editMessage(FormatUtil.filter(event.getClient().getSuccess()+" 已載入 "
+                            +(playlist.getName()==null?"播放清單":"播放清單含有 **"+playlist.getName()+"**")
+                            + playlist.getTracks().size()+"` 首歌，已新增至播放清單!"
                             + (count<playlist.getTracks().size() ? "\n"+event.getClient().getWarning()+" Tracks longer than the allowed maximum (`"
                             + bot.getConfig().getMaxTime()+"`) have been omitted." : ""))).queue();
                 }
