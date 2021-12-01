@@ -1,1 +1,1 @@
-worker: java -jar target/JMusicBot-Snapshot-All.jar
+worker: java -Dnogui=true -Dupdatealerts=false -jar target/JMusicBot-Snapshot-All.jar

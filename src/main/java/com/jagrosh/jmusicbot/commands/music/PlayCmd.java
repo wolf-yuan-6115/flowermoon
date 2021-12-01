@@ -107,8 +107,8 @@ public class PlayCmd extends MusicCommand
         {
             if(bot.getConfig().isTooLong(track))
             {
-                m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" This track (**"+track.getInfo().title+"**) is longer than the allowed maximum: `"
-                        +FormatUtil.formatTime(track.getDuration())+"` > `"+FormatUtil.formatTime(bot.getConfig().getMaxSeconds()*1000)+"`")).queue();
+                m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" 這個歌曲 (**"+track.getInfo().title+"**) 太長了( `"
+                        +FormatUtil.formatTime(track.getDuration())+"` > `"+FormatUtil.formatTime(bot.getConfig().getMaxSeconds()*1000)+"` )")).queue();
                 return;
             }
             AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
@@ -182,7 +182,7 @@ public class PlayCmd extends MusicCommand
                 {
                     m.editMessage(FormatUtil.filter(event.getClient().getSuccess()+" 已載入 "
                             +(playlist.getName()==null?"播放清單":"播放清單含有 **"+playlist.getName()+"**")
-                            + playlist.getTracks().size()+"` 首歌，已新增至播放清單!"
+                            + playlist.getTracks().size()+" 首歌，已新增至播放清單!"
                             + (count<playlist.getTracks().size() ? "\n"+event.getClient().getWarning()+" Tracks longer than the allowed maximum (`"
                             + bot.getConfig().getMaxTime()+"`) have been omitted." : ""))).queue();
                 }
