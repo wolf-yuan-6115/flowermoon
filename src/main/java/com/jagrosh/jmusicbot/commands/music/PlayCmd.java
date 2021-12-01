@@ -51,7 +51,7 @@ public class PlayCmd extends MusicCommand
         super(bot);
         this.loadingEmoji = bot.getConfig().getLoading();
         this.name = "play";
-        this.arguments = "<title|URL|subcommand>";
+        this.arguments = "<標題|網址|子指令>";
         this.help = "播放提供的歌曲";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.beListening = true;
@@ -120,7 +120,7 @@ public class PlayCmd extends MusicCommand
             else
             {
                 new ButtonMenu.Builder()
-                        .setText(addMsg+"\n"+event.getClient().getWarning()+" This track has a playlist of **"+playlist.getTracks().size()+"** tracks attached. Select "+LOAD+" to load playlist.")
+                        .setText(addMsg+"\n"+event.getClient().getWarning()+" 這個歌曲在播放清單內，還有 **"+playlist.getTracks().size()+"** 首其他歌曲，按下 "+LOAD+" 來載入")
                         .setChoices(LOAD, CANCEL)
                         .setEventWaiter(bot.getWaiter())
                         .setTimeout(30, TimeUnit.SECONDS)
@@ -175,16 +175,16 @@ public class PlayCmd extends MusicCommand
                 int count = loadPlaylist(playlist, null);
                 if(count==0)
                 {
-                    m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" All entries in this playlist "+(playlist.getName()==null ? "" : "(**"+playlist.getName()
-                            +"**) ")+"were longer than the allowed maximum (`"+bot.getConfig().getMaxTime()+"`)")).queue();
+                    m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" 播放清單內的歌曲 "+(playlist.getName()==null ? "" : "(**"+playlist.getName()
+                            +"**) 已經超過可以播放的總時間")+" (`"+bot.getConfig().getMaxTime()+"`)")).queue();
                 }
                 else
                 {
                     m.editMessage(FormatUtil.filter(event.getClient().getSuccess()+" 已載入 "
                             +(playlist.getName()==null?"播放清單":"播放清單含有 **"+playlist.getName()+"**")
-                            + playlist.getTracks().size()+" 首歌，已新增至播放清單!"
-                            + (count<playlist.getTracks().size() ? "\n"+event.getClient().getWarning()+" Tracks longer than the allowed maximum (`"
-                            + bot.getConfig().getMaxTime()+"`) have been omitted." : ""))).queue();
+                            + playlist.getTracks().size()+" 首歌，已新增至序列!"
+                            + (count<playlist.getTracks().size() ? "\n"+event.getClient().getWarning()+" 這些歌曲超過可播放總時間(`"
+                            + bot.getConfig().getMaxTime()+"`) ，所以無法播放" : ""))).queue();
                 }
             }
         }
@@ -193,7 +193,7 @@ public class PlayCmd extends MusicCommand
         public void noMatches()
         {
             if(ytsearch)
-                m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" No results found for `"+event.getArgs()+"`.")).queue();
+                m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" 沒有找到歌曲 `"+event.getArgs()+"`.")).queue();
             else
                 bot.getPlayerManager().loadItemOrdered(event.getGuild(), "ytsearch:"+event.getArgs(), new ResultHandler(m,event,true));
         }
@@ -202,9 +202,9 @@ public class PlayCmd extends MusicCommand
         public void loadFailed(FriendlyException throwable)
         {
             if(throwable.severity==Severity.COMMON)
-                m.editMessage(event.getClient().getError()+" Error loading: "+throwable.getMessage()).queue();
+                m.editMessage(event.getClient().getError()+" 載入時發生錯誤: "+throwable.getMessage()).queue();
             else
-                m.editMessage(event.getClient().getError()+" Error loading track.").queue();
+                m.editMessage(event.getClient().getError()+" 播放時發生錯誤").queue();
         }
     }
     
@@ -216,7 +216,7 @@ public class PlayCmd extends MusicCommand
             this.name = "playlist";
             this.aliases = new String[]{"pl"};
             this.arguments = "<name>";
-            this.help = "plays the provided playlist";
+            this.help = "播放播放清單";
             this.beListening = true;
             this.bePlaying = false;
         }
@@ -226,24 +226,24 @@ public class PlayCmd extends MusicCommand
         {
             if(event.getArgs().isEmpty())
             {
-                event.reply(event.getClient().getError()+" Please include a playlist name.");
+                event.reply(event.getClient().getError()+" 請輸入播放清單名稱！");
                 return;
             }
             Playlist playlist = bot.getPlaylistLoader().getPlaylist(event.getArgs());
             if(playlist==null)
             {
-                event.replyError("I could not find `"+event.getArgs()+".txt` in the Playlists folder.");
+                event.replyError("我找不到預載播放清單 `"+event.getArgs()+".txt` ！");
                 return;
             }
-            event.getChannel().sendMessage(loadingEmoji+" Loading playlist **"+event.getArgs()+"**... ("+playlist.getItems().size()+" items)").queue(m -> 
+            event.getChannel().sendMessage(loadingEmoji+" 正在載入 **"+event.getArgs()+"**... ("+playlist.getItems().size()+" 首歌曲)").queue(m -> 
             {
                 AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
                 playlist.loadTracks(bot.getPlayerManager(), (at)->handler.addTrack(new QueuedTrack(at, event.getAuthor())), () -> {
                     StringBuilder builder = new StringBuilder(playlist.getTracks().isEmpty() 
-                            ? event.getClient().getWarning()+" No tracks were loaded!" 
-                            : event.getClient().getSuccess()+" Loaded **"+playlist.getTracks().size()+"** tracks!");
+                            ? event.getClient().getWarning()+" 沒有任何歌曲已讀取" 
+                            : event.getClient().getSuccess()+" 已載入 **"+playlist.getTracks().size()+"** 首歌曲！");
                     if(!playlist.getErrors().isEmpty())
-                        builder.append("\nThe following tracks failed to load:");
+                        builder.append("\n這個歌曲無法載入");
                     playlist.getErrors().forEach(err -> builder.append("\n`[").append(err.getIndex()+1).append("]` **").append(err.getItem()).append("**: ").append(err.getReason()));
                     String str = builder.toString();
                     if(str.length()>2000)

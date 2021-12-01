@@ -31,7 +31,7 @@ public class RepeatCmd extends DJCommand
     {
         super(bot);
         this.name = "repeat";
-        this.help = "re-adds music to the queue when finished";
+        this.help = "切換重複播放功能";
         this.arguments = "[off|all|single]";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = true;
@@ -65,11 +65,11 @@ public class RepeatCmd extends DJCommand
         }
         else
         {
-            event.replyError("Valid options are `off`, `all` or `single` (or leave empty to toggle between `off` and `all`)");
+            event.replyError("可以使用的參數有： `off`（關閉）, `all`（全部重複） or `single`（單曲重複） （沒有輸入時會在 `off`（關閉） 及 `all`（全部重複） 之間切換)");
             return;
         }
         settings.setRepeatMode(value);
-        event.replySuccess("Repeat mode is now `"+value.getUserFriendlyName()+"`");
+        event.replySuccess("重複播放狀態目前為： `"+value.getUserFriendlyName()+"`");
     }
 
     @Override
