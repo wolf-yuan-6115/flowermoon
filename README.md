@@ -1,60 +1,43 @@
-<img align="right" src="https://i.imgur.com/zrE80HY.png" height="200" width="200">
+# 花月 - JMusic中文翻譯版本，建立於v0.3.6上
 
-# JMusicBot
-
-[![Downloads](https://img.shields.io/github/downloads/jagrosh/MusicBot/total.svg)](https://github.com/jagrosh/MusicBot/releases/latest)
-[![Stars](https://img.shields.io/github/stars/jagrosh/MusicBot.svg)](https://github.com/jagrosh/MusicBot/stargazers)
-[![Release](https://img.shields.io/github/release/jagrosh/MusicBot.svg)](https://github.com/jagrosh/MusicBot/releases/latest)
-[![License](https://img.shields.io/github/license/jagrosh/MusicBot.svg)](https://github.com/jagrosh/MusicBot/blob/master/LICENSE)
-[![Discord](https://discordapp.com/api/guilds/147698382092238848/widget.png)](https://discord.gg/0p9LSGoRLu6Pet0k)<br>
-[![CircleCI](https://img.shields.io/circleci/project/github/jagrosh/MusicBot/master.svg)](https://circleci.com/gh/jagrosh/MusicBot)
-[![AppVeyor](https://ci.appveyor.com/api/projects/status/gdu6nyte5psj6xfk/branch/master?svg=true)](https://ci.appveyor.com/project/jagrosh/musicbot/branch/master)
-[![CodeFactor](https://www.codefactor.io/repository/github/jagrosh/musicbot/badge)](https://www.codefactor.io/repository/github/jagrosh/musicbot)
-
-A cross-platform Discord music bot with a clean interface, and that is easy to set up and run yourself!
+一個跨平台，擁有簡潔介面、簡易使用的Discord音樂機器人！
 
 [![Setup](http://i.imgur.com/VvXYp5j.png)](https://jmusicbot.com/setup)
+> 此音樂機器人為JMusic修改版，可以直接使用現有的設置檔案
 
 ## Features
-  * Easy to run (just make sure Java is installed, and run!)
-  * Fast loading of songs
-  * No external keys needed (besides a Discord Bot token)
-  * Smooth playback
-  * Server-specific setup for the "DJ" role that can moderate the music
-  * Clean and beautiful menus
-  * Supports many sites, including Youtube, Soundcloud, and more
-  * Supports many online radio/streams
-  * Supports local files
-  * Playlist support (both web/youtube, and local)
+  * 容易託管 (只需要確定Java以及安裝在您的電腦上)
+  * 載入音樂速度快
+  * 沒有需要提供其他API金鑰 (除了Discord機器人Token)
+  * 音樂播放很順暢
+  * 伺服器可自訂"DJ"身分組
+  * 美麗、簡潔的選單
+  * 支援許多音樂來源，例如 YouTube, SoundCloud 及更多平台！
+  * 支援許多廣播/直播來源
+  * 可播放本地檔案
+  * 播放清單支援 (包含YouTube及本地播放清單)
 
-## Supported sources and formats
-JMusicBot supports all sources and formats supported by [lavaplayer](https://github.com/sedmelluq/lavaplayer#supported-formats):
-### Sources
+## 支援的格式
+花月支援所有 [lavaplayer](https://github.com/sedmelluq/lavaplayer#supported-formats) 支援的格式:
+### 來源
   * YouTube
   * SoundCloud
   * Bandcamp
   * Vimeo
-  * Twitch streams
-  * Local files
-  * HTTP URLs
-### Formats
+  * Twitch 直播
+  * 本地檔案
+  * HTTP 網站
+### 格式
   * MP3
   * FLAC
   * WAV
-  * Matroska/WebM (AAC, Opus or Vorbis codecs)
+  * Matroska/WebM (AAC, Opus or Vorbis 編碼)
   * MP4/M4A (AAC codec)
-  * OGG streams (Opus, Vorbis and FLAC codecs)
+  * OGG streams (Opus, Vorbis and FLAC 編碼)
   * AAC streams
-  * Stream playlists (M3U and PLS)
+  * 直播播放清單 (M3U and PLS)
 
-## Example
-![Loading Example...](https://i.imgur.com/kVtTKvS.gif)
-
-## Setup
-Please see the [Setup Page](https://jmusicbot.com/setup) to run this bot yourself!
-
-## Questions/Suggestions/Bug Reports
-**Please read the [Issues List](https://github.com/jagrosh/MusicBot/issues) before suggesting a feature**. If you have a question, need troubleshooting help, or want to brainstorm a new feature, please start a [Discussion](https://github.com/jagrosh/MusicBot/discussions). If you'd like to suggest a feature or report a reproducible bug, please open an [Issue](https://github.com/jagrosh/MusicBot/issues) on this repository. If you like this bot, be sure to add a star to the libraries that make this possible: [**JDA**](https://github.com/DV8FromTheWorld/JDA) and [**lavaplayer**](https://github.com/sedmelluq/lavaplayer)!
-
-## Editing
-This bot (and the source code here) might not be easy to edit for inexperienced programmers. The main purpose of having the source public is to show the capabilities of the libraries, to allow others to understand how the bot works, and to allow those knowledgeable about java, JDA, and Discord bot development to contribute. There are many requirements and dependencies required to edit and compile it, and there will not be support provided for people looking to make changes on their own. Instead, consider making a feature request (see the above section). If you choose to make edits, please do so in accordance with the Apache 2.0 License.
+## 配置
+請前往 [英文網頁](https://jmusicbot.com/setup) 來自己運行機器人！
+> 注意： 請勿在網頁上下載Jmusic bot，如果這麼做，機器人將會是英文版的
+> 請前往

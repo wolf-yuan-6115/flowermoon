@@ -43,7 +43,7 @@ public class FormatUtil {
         String str = "";
         for(int i=0; i<12; i++)
             if(i == (int)(percent*12))
-                str+="\uD83D\uDD18"; // 🔘
+                str+="\uD83d\uDD35"; // 🔵
             else
                 str+="▬";
         return str;
@@ -62,31 +62,31 @@ public class FormatUtil {
     
     public static String listOfTChannels(List<TextChannel> list, String query)
     {
-        String out = " Multiple text channels found matching \""+query+"\":";
+        String out = " 有多個文字頻道的搜尋結果符合 \""+query+"\":";
         for(int i=0; i<6 && i<list.size(); i++)
             out+="\n - "+list.get(i).getName()+" (<#"+list.get(i).getId()+">)";
         if(list.size()>6)
-            out+="\n**And "+(list.size()-6)+" more...**";
+            out+="\n**還有 "+(list.size()-6)+" 個其他頻道...**";
         return out;
     }
     
     public static String listOfVChannels(List<VoiceChannel> list, String query)
     {
-        String out = " Multiple voice channels found matching \""+query+"\":";
+        String out = " 有多個語音頻道的搜尋結果符合 \""+query+"\":";
         for(int i=0; i<6 && i<list.size(); i++)
             out+="\n - "+list.get(i).getAsMention()+" (ID:"+list.get(i).getId()+")";
         if(list.size()>6)
-            out+="\n**And "+(list.size()-6)+" more...**";
+            out+="\n**還有 "+(list.size()-6)+" 個其他頻道...**";
         return out;
     }
     
     public static String listOfRoles(List<Role> list, String query)
     {
-        String out = " Multiple text channels found matching \""+query+"\":";
+        String out = " 有多個身分組的搜尋結果符合 \""+query+"\":";
         for(int i=0; i<6 && i<list.size(); i++)
             out+="\n - "+list.get(i).getName()+" (ID:"+list.get(i).getId()+")";
         if(list.size()>6)
-            out+="\n**And "+(list.size()-6)+" more...**";
+            out+="\n**還有 "+(list.size()-6)+" 個其他身分組...**";
         return out;
     }
     
