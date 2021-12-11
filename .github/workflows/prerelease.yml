@@ -7,7 +7,7 @@ on:
 
 jobs:
   pre-release:
-    name: "Pre Release"
+    name: "Pre-Release"
     runs-on: "ubuntu-latest"
 
     steps:
@@ -16,7 +16,6 @@ jobs:
         with:
           distribution: 'temurin'
           java-version: '17'
-          cache: 'maven'
       - name: "Build Jar file"
         run: mvm clean build
       - name: "Release Jar file"
