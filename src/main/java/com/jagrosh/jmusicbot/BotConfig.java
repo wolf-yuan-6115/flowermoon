@@ -106,13 +106,13 @@ public class BotConfig
             // validate bot token
             if(token==null || token.isEmpty() || token.equalsIgnoreCase("BOT_TOKEN_HERE"))
             {
-                token = prompt.prompt("Please provide a bot token."
-                        + "\nInstructions for obtaining a token can be found here:"
+                token = prompt.prompt("請提供機器人Token"
+                        + "\n取得機器人Token的教學可以在以下網址查看"
                         + "\nhttps://github.com/jagrosh/MusicBot/wiki/Getting-a-Bot-Token."
-                        + "\nBot Token: ");
+                        + "\n目前的機器人Token: ");
                 if(token==null)
                 {
-                    prompt.alert(Prompt.Level.WARNING, CONTEXT, "No token provided! Exiting.\n\nConfig Location: " + path.toAbsolutePath().toString());
+                    prompt.alert(Prompt.Level.WARNING, CONTEXT, "沒有提供Token! 關閉程式中...\n\n配置文件路徑: " + path.toAbsolutePath().toString());
                     return;
                 }
                 else
@@ -126,9 +126,9 @@ public class BotConfig
             {
                 try
                 {
-                    owner = Long.parseLong(prompt.prompt("Owner ID was missing, or the provided owner ID is not valid."
-                        + "\nPlease provide the User ID of the bot's owner."
-                        + "\nInstructions for obtaining your User ID can be found here:"
+                    owner = Long.parseLong(prompt.prompt("擁有者ID沒有提供，或者是ID是無效的"
+                        + "\n請提供機器人擁有者的ID"
+                        + "\n取得擁有者ID的教學可以在以下網址查看"
                         + "\nhttps://github.com/jagrosh/MusicBot/wiki/Finding-Your-User-ID"
                         + "\nOwner User ID: "));
                 }
@@ -138,7 +138,7 @@ public class BotConfig
                 }
                 if(owner<=0)
                 {
-                    prompt.alert(Prompt.Level.ERROR, CONTEXT, "Invalid User ID! Exiting.\n\nConfig Location: " + path.toAbsolutePath().toString());
+                    prompt.alert(Prompt.Level.ERROR, CONTEXT, "無效的用戶ID! 關閉程式中...\n\n配置文件路徑: " + path.toAbsolutePath().toString());
                     return;
                 }
                 else

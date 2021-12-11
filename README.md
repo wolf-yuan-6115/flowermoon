@@ -1,5 +1,5 @@
 # 花月 - JMusic中文翻譯版本，建立於v0.3.6上
-
+## 注意：中文翻譯尚未全部完全
 一個跨平台，擁有簡潔介面、簡易使用的Discord音樂機器人！
 
 [![Setup](http://i.imgur.com/VvXYp5j.png)](https://jmusicbot.com/setup)

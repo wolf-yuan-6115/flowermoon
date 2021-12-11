@@ -79,6 +79,13 @@ public class JMusicBot
         SettingsManager settings = new SettingsManager();
         Bot bot = new Bot(waiter, config, settings);
         
+        AboutCommand aboutCommand = new AboutCommand(Color.BLUE.brighter(),
+                                "一個 [可以自己運行的音樂機器人](https://github.com/wolf-yuan-6115/flowermoon) (v"+version+")",
+                                new String[]{"高品質的音樂", "FairQueue™ 技術"},
+                                RECOMMENDED_PERMS);
+        aboutCommand.setIsAuthor(false);
+        aboutCommand.setReplacementCharacter("\uD83C\uDFB6"); // 🎶
+        
         // set up the command client
         CommandClientBuilder cb = new CommandClientBuilder()
                 .setPrefix(config.getPrefix())
@@ -88,7 +95,8 @@ public class JMusicBot
                 .setHelpWord(config.getHelp())
                 .setLinkedCacheSize(200)
                 .setGuildSettingsManager(settings)
-                .addCommands(new PingCommand(),
+                .addCommands(aboutCommand,
+                        new PingCommand(),
                         new SettingsCmd(bot),
                         
                         new LyricsCmd(bot),
@@ -151,13 +159,11 @@ public class JMusicBot
             } 
             catch(Exception e) 
             {
-                log.error("Could not start GUI. If you are "
-                        + "running on a server or in a location where you cannot display a "
-                        + "window, please run in nogui mode using the -Dnogui=true flag.");
+                log.error("無法開啟視窗，如果您的伺服器或電腦沒有螢幕，請使用 -Dnogui=true 來啟動機器人");
             }
         }
         
-        log.info("Loaded config from " + config.getConfigLocation());
+        log.info("成功從 " + config.getConfigLocation() + " 讀取配置");
         
         // attempt to log in and start
         try
@@ -175,15 +181,14 @@ public class JMusicBot
         }
         catch (LoginException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, "JMusicBot", ex + "\nPlease make sure you are "
-                    + "editing the correct config.txt file, and that you have used the "
-                    + "correct token (not the 'secret'!)\nConfig Location: " + config.getConfigLocation());
+            prompt.alert(Prompt.Level.ERROR, "JMusicBot", ex + "\n請確定您更改了正確的配置文件，並且放置了正確的機器人Token (不是secret)"
+                    + "\n配置文件路徑: " + config.getConfigLocation());
             System.exit(1);
         }
         catch(IllegalArgumentException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, "JMusicBot", "Some aspect of the configuration is "
-                    + "invalid: " + ex + "\nConfig Location: " + config.getConfigLocation());
+            prompt.alert(Prompt.Level.ERROR, "JMusicBot", "部分配置文件語法錯誤: "
+                    + ex + "\n配置文件路徑: " + config.getConfigLocation());
             System.exit(1);
         }
     }
