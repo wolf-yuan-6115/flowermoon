@@ -17,15 +17,15 @@ token = ${BOT_TOKEN}
 
 owner = 669194742218752070
 
-prefix = "moon"
+prefix = "m?"
 
-game = "Playing Beta!"
+game = "Listening moon help"
 
 status = IDLE
 
 songinstatus=false
 
-altprefix = "m?"
+altprefix = "moon"
 
 success = "🎶"
 warning = "💡"
