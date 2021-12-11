@@ -17,7 +17,7 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
       - name: "Build Jar file"
-        run: mvm clean build
+        run: mvn clean build
       - name: "Release Jar file"
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
