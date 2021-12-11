@@ -40,4 +40,5 @@
 ## 配置
 請前往 [英文網頁](https://jmusicbot.com/setup) 來自己運行機器人！
 > 注意： 請勿在網頁上下載Jmusic bot，如果這麼做，機器人將會是英文版的
-> 請前往
+>
+> 請前往 [此網頁](https://github.com/wolf-yuan-6115/flowermoon/releases) 下載!
