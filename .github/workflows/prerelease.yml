@@ -26,5 +26,5 @@ jobs:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Pre-release "
+          title: "Pre-release ${{ env.GITHUB_SHA_SHORT }}"
           files: "target/*-All.jar"
