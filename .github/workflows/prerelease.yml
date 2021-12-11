@@ -18,11 +18,13 @@ jobs:
           java-version: '17'
       - name: "Build Jar file"
         run: mvn clean package
+      - name: "Get commit SHA"
+        run: echo "GITHUB_SHA_SHORT=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
       - name: "Release Jar file"
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           automatic_release_tag: "latest"
           prerelease: true
-          title: "Pre-release $(git rev-parse --short \"$GITHUB_SHA\")"
+          title: "Pre-release "
           files: "target/*-All.jar"
