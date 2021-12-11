@@ -24,7 +24,7 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "latest"
+          automatic_release_tag: "prerelease"
           prerelease: true
           title: "Commit ${{ env.GITHUB_SHA_SHORT }}"
           files: "target/*-All.jar"
