@@ -33,8 +33,8 @@ public class SetvcCmd extends AdminCommand
     public SetvcCmd(Bot bot)
     {
         this.name = "setvc";
-        this.help = "sets the voice channel for playing music";
-        this.arguments = "<channel|NONE>";
+        this.help = "設置播放音樂的語音頻道";
+        this.arguments = "<語音頻道|NONE>";
         this.aliases = bot.getConfig().getAliases(this.name);
     }
     
@@ -43,26 +43,26 @@ public class SetvcCmd extends AdminCommand
     {
         if(event.getArgs().isEmpty())
         {
-            event.reply(event.getClient().getError()+" Please include a voice channel or NONE");
+            event.reply(event.getClient().getError()+" 請輸入一個語音頻道或是 NONE");
             return;
         }
         Settings s = event.getClient().getSettingsFor(event.getGuild());
         if(event.getArgs().equalsIgnoreCase("none"))
         {
             s.setVoiceChannel(null);
-            event.reply(event.getClient().getSuccess()+" Music can now be played in any channel");
+            event.reply(event.getClient().getSuccess()+" 現在音樂可以在任何頻道中播放");
         }
         else
         {
             List<VoiceChannel> list = FinderUtil.findVoiceChannels(event.getArgs(), event.getGuild());
             if(list.isEmpty())
-                event.reply(event.getClient().getWarning()+" No Voice Channels found matching \""+event.getArgs()+"\"");
+                event.reply(event.getClient().getWarning()+" 沒有符合 \""+event.getArgs()+"\" 的語音頻道搜尋結果");
             else if (list.size()>1)
                 event.reply(event.getClient().getWarning()+FormatUtil.listOfVChannels(list, event.getArgs()));
             else
             {
                 s.setVoiceChannel(list.get(0));
-                event.reply(event.getClient().getSuccess()+" Music can now only be played in "+list.get(0).getAsMention());
+                event.reply(event.getClient().getSuccess()+" 音樂現在只能在 "+list.get(0).getAsMention()+" 中播放");
             }
         }
     }
