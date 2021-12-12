@@ -56,17 +56,17 @@ public class JMusicBot
     public static void main(String[] args)
     {
         // startup log
-        Logger log = LoggerFactory.getLogger("Startup");
+        Logger log = LoggerFactory.getLogger("啟動");
         
         // create prompt to handle startup
-        Prompt prompt = new Prompt("JMusicBot", "Switching to nogui mode. You can manually start in nogui mode by including the -Dnogui=true flag.");
+        Prompt prompt = new Prompt("機器人", "正在切換到無視窗模式，您可以使用 -Dnogui=false 來關閉這個功能");
         
         // get and check latest version
         String version = OtherUtil.checkVersion(prompt);
         
         // check for valid java version
         if(!System.getProperty("java.vm.name").contains("64"))
-            prompt.alert(Prompt.Level.WARNING, "Java Version", "It appears that you may not be using a supported Java version. Please use 64-bit java.");
+            prompt.alert(Prompt.Level.WARNING, "Java版本", "您的Java可能無法跟此程式相容，請使用64位元的Java");
         
         // load config
         BotConfig config = new BotConfig(prompt);
@@ -181,13 +181,13 @@ public class JMusicBot
         }
         catch (LoginException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, "JMusicBot", ex + "\n請確定您更改了正確的配置文件，並且放置了正確的機器人Token (不是secret)"
+            prompt.alert(Prompt.Level.ERROR, "機器人", ex + "\n請確定您更改了正確的配置文件，並且放置了正確的機器人Token (不是secret)"
                     + "\n配置文件路徑: " + config.getConfigLocation());
             System.exit(1);
         }
         catch(IllegalArgumentException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, "JMusicBot", "部分配置文件語法錯誤: "
+            prompt.alert(Prompt.Level.ERROR, "機器人", "部分配置文件語法錯誤: "
                     + ex + "\n配置文件路徑: " + config.getConfigLocation());
             System.exit(1);
         }

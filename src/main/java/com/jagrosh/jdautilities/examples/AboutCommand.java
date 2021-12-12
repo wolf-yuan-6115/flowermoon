@@ -95,7 +95,7 @@ public class AboutCommand extends Command {
                 .append(description).append("\n我").append(IS_AUTHOR ? "使用Java寫成" : "的擁有者是").append(" **")
                 .append(author).append("** 正在使用 " + JDAUtilitiesInfo.AUTHOR + "的 [指令擴充](" + JDAUtilitiesInfo.GITHUB + ") (")
                 .append(JDAUtilitiesInfo.VERSION).append(") 以及 [JDA 程式庫](https://github.com/DV8FromTheWorld/JDA) (")
-                .append(JDAInfo.VERSION).append(")\n輸入 `").append(event.getClient().getTextualPrefix()).append(event.getClient().getHelpWord())
+                .append(JDAInfo.VERSION).append(")\n\n這個中文版本是由Wolf yuan翻譯，可以在 [這裡](https://github.com/wolf-yuan-6115/flowermoon) 下載\n輸入 `").append(event.getClient().getTextualPrefix()).append(event.getClient().getHelpWord())
                 .append("` 來看見我的指令!").append(join || inv ? invline : "").append("\n\n我擁有這些功能: ```css");
         for (String feature : features)
             descr.append("\n").append(event.getClient().getSuccess().startsWith("<") ? REPLACEMENT_ICON : event.getClient().getSuccess()).append(" ").append(feature);

@@ -58,7 +58,7 @@ public class SettingsManager implements GuildSettingsManager
                         o.has("skip_ratio")      ? o.getDouble("skip_ratio")                 : SKIP_RATIO));
             });
         } catch(IOException | JSONException e) {
-            LoggerFactory.getLogger("Settings").warn("Failed to load server settings (this is normal if no settings have been set yet): "+e);
+            LoggerFactory.getLogger("設定").warn("無法讀取伺服器設定(此狀況會發生有可能為目前還沒有該檔案): "+e);
         }
     }
     
@@ -111,7 +111,7 @@ public class SettingsManager implements GuildSettingsManager
         try {
             Files.write(OtherUtil.getPath("serversettings.json"), obj.toString(4).getBytes());
         } catch(IOException ex){
-            LoggerFactory.getLogger("Settings").warn("Failed to write to file: "+ex);
+            LoggerFactory.getLogger("設定").warn("寫入設定失敗: "+ex);
         }
     }
 }

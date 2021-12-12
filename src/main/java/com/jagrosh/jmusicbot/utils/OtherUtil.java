@@ -36,10 +36,10 @@ import org.json.JSONTokener;
  */
 public class OtherUtil
 {
-    public final static String NEW_VERSION_AVAILABLE = "There is a new version of JMusicBot available!\n"
-                    + "Current version: %s\n"
-                    + "New Version: %s\n\n"
-                    + "Please visit https://github.com/jagrosh/MusicBot/releases/latest to get the latest release.";
+    public final static String NEW_VERSION_AVAILABLE = "有新版的程式!\n"
+                    + "目前版本: %s\n"
+                    + "最新版本: %s\n\n"
+                    + "請前往 https://github.com/wolf-yuan-6115/flowermoon/releases/latest 來下載";
     private final static String WINDOWS_INVALID_PATH = "c:\\windows\\system32\\";
     
     /**
@@ -180,7 +180,7 @@ public class OtherUtil
         try
         {
             Response response = new OkHttpClient.Builder().build()
-                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/jagrosh/MusicBot/releases/latest").build())
+                    .newCall(new Request.Builder().get().url("https://api.github.com/repos/wolf-yuan-6115/flowermoon/releases/latest").build())
                     .execute();
             ResponseBody body = response.body();
             if(body != null)

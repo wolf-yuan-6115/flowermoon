@@ -35,7 +35,7 @@ import net.dv8tion.jda.api.entities.Activity;
 public class BotConfig
 {
     private final Prompt prompt;
-    private final static String CONTEXT = "Config";
+    private final static String CONTEXT = "配置";
     private final static String START_TOKEN = "/// START OF JMUSICBOT CONFIG ///";
     private final static String END_TOKEN = "/// END OF JMUSICBOT CONFIG ///";
     
@@ -155,7 +155,7 @@ public class BotConfig
         }
         catch (ConfigException ex)
         {
-            prompt.alert(Prompt.Level.ERROR, CONTEXT, ex + ": " + ex.getMessage() + "\n\nConfig Location: " + path.toAbsolutePath().toString());
+            prompt.alert(Prompt.Level.ERROR, CONTEXT, ex + ": " + ex.getMessage() + "\n\n配置文件路徑: " + path.toAbsolutePath().toString());
         }
     }
     
@@ -180,8 +180,8 @@ public class BotConfig
         }
         catch(IOException ex) 
         {
-            prompt.alert(Prompt.Level.WARNING, CONTEXT, "Failed to write new config options to config.txt: "+ex
-                + "\nPlease make sure that the files are not on your desktop or some other restricted area.\n\nConfig Location: " 
+            prompt.alert(Prompt.Level.WARNING, CONTEXT, "寫入Config.txt失敗: "+ex
+                + "\n請確認您不是在桌面或者其它被限制的資料夾內\n\n配置文件路徑: " 
                 + path.toAbsolutePath().toString());
         }
     }

@@ -29,7 +29,7 @@ public class FormatUtil {
     public static String formatTime(long duration)
     {
         if(duration == Long.MAX_VALUE)
-            return "LIVE";
+            return "直播";
         long seconds = Math.round(duration/1000.0);
         long hours = seconds/(60*60);
         seconds %= 60*60;

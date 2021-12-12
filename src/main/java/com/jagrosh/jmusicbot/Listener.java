@@ -49,7 +49,7 @@ public class Listener extends ListenerAdapter
     {
         if(event.getJDA().getGuildCache().isEmpty())
         {
-            Logger log = LoggerFactory.getLogger("MusicBot");
+            Logger log = LoggerFactory.getLogger("音樂機器人");
             log.warn("這個機器人不在任何一個伺服器! 請使用以下的連結邀請機器人: \n");
             log.warn(event.getJDA().getInviteUrl(JMusicBot.RECOMMENDED_PERMS));
         }
