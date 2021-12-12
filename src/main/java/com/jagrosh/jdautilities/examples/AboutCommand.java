@@ -84,7 +84,7 @@ public class AboutCommand extends Command {
         }
         EmbedBuilder builder = new EmbedBuilder();
         builder.setColor(event.isFromType(ChannelType.TEXT) ? event.getGuild().getSelfMember().getColor() : color);
-        builder.setAuthor("All about " + event.getSelfUser().getName() + "!", null, event.getSelfUser().getAvatarUrl());
+        builder.setAuthor(event.getSelfUser().getName() + " 的個人資料!", null, event.getSelfUser().getAvatarUrl());
         boolean join = !(event.getClient().getServerInvite() == null || event.getClient().getServerInvite().isEmpty());
         boolean inv = !oauthLink.isEmpty();
         String invline = "\n" + (join ? "Join my server [`here`](" + event.getClient().getServerInvite() + ")" : (inv ? "Please " : "")) 

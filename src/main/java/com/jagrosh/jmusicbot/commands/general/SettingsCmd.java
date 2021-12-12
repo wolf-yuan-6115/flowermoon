@@ -38,7 +38,7 @@ public class SettingsCmd extends Command
     public SettingsCmd(Bot bot)
     {
         this.name = "settings";
-        this.help = "shows the bots settings";
+        this.help = "顯示機器人的設定";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = true;
     }
@@ -50,20 +50,20 @@ public class SettingsCmd extends Command
         MessageBuilder builder = new MessageBuilder()
                 .append(EMOJI + " **")
                 .append(FormatUtil.filter(event.getSelfUser().getName()))
-                .append("** settings:");
+                .append("** 伺服器設定:");
         TextChannel tchan = s.getTextChannel(event.getGuild());
         VoiceChannel vchan = s.getVoiceChannel(event.getGuild());
         Role role = s.getRole(event.getGuild());
         EmbedBuilder ebuilder = new EmbedBuilder()
                 .setColor(event.getSelfMember().getColor())
-                .setDescription("Text Channel: " + (tchan == null ? "Any" : "**#" + tchan.getName() + "**")
-                        + "\nVoice Channel: " + (vchan == null ? "Any" : vchan.getAsMention())
-                        + "\nDJ Role: " + (role == null ? "None" : "**" + role.getName() + "**")
-                        + "\nCustom Prefix: " + (s.getPrefix() == null ? "None" : "`" + s.getPrefix() + "`")
-                        + "\nRepeat Mode: " + (s.getRepeatMode() == RepeatMode.OFF
+                .setDescription("文字頻道: " + (tchan == null ? "*未設置*" : "**#" + tchan.getName() + "**")
+                        + "\n語音頻道: " + (vchan == null ? "*未設置*" : vchan.getAsMention())
+                        + "\nDJ身分組: " + (role == null ? "*未設置*" : "**" + role.getName() + "**")
+                        + "\n自定義前綴: " + (s.getPrefix() == null ? "*未設置*" : "`" + s.getPrefix() + "`")
+                        + "\n重複播放: " + (s.getRepeatMode() == RepeatMode.OFF
                                                 ? s.getRepeatMode().getUserFriendlyName()
                                                 : "**"+s.getRepeatMode().getUserFriendlyName()+"**")
-                        + "\nDefault Playlist: " + (s.getDefaultPlaylist() == null ? "None" : "**" + s.getDefaultPlaylist() + "**")
+                        + "\n預設播放清單: " + (s.getDefaultPlaylist() == null ? "*未設置*" : "**" + s.getDefaultPlaylist() + "**")
                         )
                 .setFooter(event.getJDA().getGuilds().size() + " servers | "
                         + event.getJDA().getGuilds().stream().filter(g -> g.getSelfMember().getVoiceState().inVoiceChannel()).count()
