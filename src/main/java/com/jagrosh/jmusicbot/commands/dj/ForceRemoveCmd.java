@@ -38,8 +38,8 @@ public class ForceRemoveCmd extends DJCommand
     {
         super(bot);
         this.name = "forceremove";
-        this.help = "removes all entries by a user from the queue";
-        this.arguments = "<user>";
+        this.help = "移除所有由該使用者加入的歌曲";
+        this.arguments = "<使用者>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.beListening = false;
         this.bePlaying = true;
@@ -51,14 +51,14 @@ public class ForceRemoveCmd extends DJCommand
     {
         if (event.getArgs().isEmpty())
         {
-            event.replyError("You need to mention a user!");
+            event.replyError("你必須標記一個成員!");
             return;
         }
 
         AudioHandler handler = (AudioHandler) event.getGuild().getAudioManager().getSendingHandler();
         if (handler.getQueue().isEmpty())
         {
-            event.replyError("There is nothing in the queue!");
+            event.replyError("沒有任何歌曲在序列中!");
             return;
         }
 
@@ -68,7 +68,7 @@ public class ForceRemoveCmd extends DJCommand
 
         if(found.isEmpty())
         {
-            event.replyError("Unable to find the user!");
+            event.replyError("找不到該使用者!");
             return;
         }
         else if(found.size()>1)
@@ -82,7 +82,7 @@ public class ForceRemoveCmd extends DJCommand
 
             builder
             .setSelection((msg, i) -> removeAllEntries(found.get(i-1).getUser(), event))
-            .setText("Found multiple users:")
+            .setText("找到多個成員:")
             .setColor(event.getSelfMember().getColor())
             .useNumbers()
             .setUsers(event.getAuthor())
@@ -109,11 +109,11 @@ public class ForceRemoveCmd extends DJCommand
         int count = ((AudioHandler) event.getGuild().getAudioManager().getSendingHandler()).getQueue().removeAll(target.getIdLong());
         if (count == 0)
         {
-            event.replyWarning("**"+target.getName()+"** doesn't have any songs in the queue!");
+            event.replyWarning("**"+target.getName()+"** 沒有加入任何歌曲!");
         }
         else
         {
-            event.replySuccess("Successfully removed `"+count+"` entries from **"+target.getName()+"**#"+target.getDiscriminator()+".");
+            event.replySuccess("成功移除 `"+count+"` 首由 **"+target.getName()+"**#"+target.getDiscriminator()+" 新增的歌曲");
         }
     }
 }

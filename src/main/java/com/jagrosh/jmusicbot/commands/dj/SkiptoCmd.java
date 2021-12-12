@@ -30,8 +30,8 @@ public class SkiptoCmd extends DJCommand
     {
         super(bot);
         this.name = "skipto";
-        this.help = "skips to the specified song";
-        this.arguments = "<position>";
+        this.help = "跳至指定的歌曲";
+        this.arguments = "<歌曲位置>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.bePlaying = true;
     }
@@ -46,17 +46,17 @@ public class SkiptoCmd extends DJCommand
         }
         catch(NumberFormatException e)
         {
-            event.reply(event.getClient().getError()+" `"+event.getArgs()+"` is not a valid integer!");
+            event.reply(event.getClient().getError()+" `"+event.getArgs()+"` 不是一個有效的整數!");
             return;
         }
         AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
         if(index<1 || index>handler.getQueue().size())
         {
-            event.reply(event.getClient().getError()+" Position must be a valid integer between 1 and "+handler.getQueue().size()+"!");
+            event.reply(event.getClient().getError()+" 位置必須為介於 1 ~ "+handler.getQueue().size()+" 的有效整數!");
             return;
         }
         handler.getQueue().skip(index-1);
-        event.reply(event.getClient().getSuccess()+" Skipped to **"+handler.getQueue().get(0).getTrack().getInfo().title+"**");
+        event.reply(event.getClient().getSuccess()+" 跳至 **"+handler.getQueue().get(0).getTrack().getInfo().title+"**");
         handler.getPlayer().stopTrack();
     }
 }

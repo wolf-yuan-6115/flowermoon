@@ -33,8 +33,8 @@ public class VolumeCmd extends DJCommand
         super(bot);
         this.name = "volume";
         this.aliases = bot.getConfig().getAliases(this.name);
-        this.help = "sets or shows volume";
-        this.arguments = "[0-150]";
+        this.help = "設定音量";
+        this.arguments = "[0 ~ 150]";
     }
 
     @Override
@@ -45,7 +45,7 @@ public class VolumeCmd extends DJCommand
         int volume = handler.getPlayer().getVolume();
         if(event.getArgs().isEmpty())
         {
-            event.reply(FormatUtil.volumeIcon(volume)+" Current volume is `"+volume+"`");
+            event.reply(FormatUtil.volumeIcon(volume)+" 目前的音量是 `"+volume+"`");
         }
         else
         {
@@ -56,12 +56,12 @@ public class VolumeCmd extends DJCommand
                 nvolume = -1;
             }
             if(nvolume<0 || nvolume>150)
-                event.reply(event.getClient().getError()+" Volume must be a valid integer between 0 and 150!");
+                event.reply(event.getClient().getError()+" 音量必須為介於 1 ~ 150 之間的有效整數!");
             else
             {
                 handler.getPlayer().setVolume(nvolume);
                 settings.setVolume(nvolume);
-                event.reply(FormatUtil.volumeIcon(nvolume)+" Volume changed from `"+volume+"` to `"+nvolume+"`");
+                event.reply(FormatUtil.volumeIcon(nvolume)+" 音量從 `"+volume+"` 變更為 `"+nvolume+"`");
             }
         }
     }
