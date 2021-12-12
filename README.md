@@ -3,13 +3,13 @@
 一個跨平台，擁有簡潔介面、簡易使用的Discord音樂機器人！
 
 [![Setup](http://i.imgur.com/VvXYp5j.png)](https://jmusicbot.com/setup)
-> 此音樂機器人為JMusic修改版，可以直接使用現有的設置檔案
+> 此音樂機器人為JMusic修改版，可以直接使用Jmusic現有的設置檔案
 
 ## Features
-  * 容易託管 (只需要確定Java以及安裝在您的電腦上)
+  * 容易託管 (只需要確定Java已經安裝在您的電腦上)
   * 載入音樂速度快
   * 沒有需要提供其他API金鑰 (除了Discord機器人Token)
-  * 音樂播放很順暢
+  * 順暢的音樂播放器
   * 伺服器可自訂"DJ"身分組
   * 美麗、簡潔的選單
   * 支援許多音樂來源，例如 YouTube, SoundCloud 及更多平台！
