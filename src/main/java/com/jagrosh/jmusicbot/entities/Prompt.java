@@ -46,7 +46,7 @@ public class Prompt
     public Prompt(String title, String noguiMessage, boolean nogui, boolean noprompt)
     {
         this.title = title;
-        this.noguiMessage = noguiMessage == null ? "Switching to nogui mode. You can manually start in nogui mode by including the -Dnogui=true flag." : noguiMessage;
+        this.noguiMessage = noguiMessage == null ? "無法開啟視窗，如果您的伺服器或電腦沒有螢幕，請使用 -Dnogui=true 來啟動機器人" : noguiMessage;
         this.nogui = nogui;
         this.noprompt = noprompt;
     }
@@ -125,7 +125,7 @@ public class Prompt
             }
             catch(Exception e)
             {
-                alert(Level.ERROR, title, "Unable to read input from command line.");
+                alert(Level.ERROR, title, "無法從命令列讀取輸入");
                 e.printStackTrace();
                 return null;
             }

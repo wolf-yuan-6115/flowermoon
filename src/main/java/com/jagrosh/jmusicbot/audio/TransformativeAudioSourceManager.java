@@ -74,15 +74,15 @@ public class TransformativeAudioSourceManager extends YoutubeAudioSourceManager
         }
         catch (PatternSyntaxException ex)
         {
-            log.info(String.format("Invalid pattern syntax '%s' in source '%s'", regex, name));
+            log.info(String.format("錯誤的語法 '%s' 於來源 '%s'", regex, name));
         }
         catch (IOException ex)
         {
-            log.warn(String.format("Failed to resolve URL in source '%s': ", name), ex);
+            log.warn(String.format("從來源轉換網址失敗: '%s': ", name), ex);
         }
         catch (Exception ex)
         {
-            log.warn(String.format("Exception in source '%s'", name), ex);
+            log.warn(String.format("來源錯誤: '%s'", name), ex);
         }
         return null;
     }
@@ -97,7 +97,7 @@ public class TransformativeAudioSourceManager extends YoutubeAudioSourceManager
         }
         catch (Exception ex)
         {
-            log.warn("Invalid transform ", ex);
+            log.warn("錯誤的轉場 ", ex);
             return Collections.emptyList();
         }
     }
