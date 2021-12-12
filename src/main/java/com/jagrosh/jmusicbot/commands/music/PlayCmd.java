@@ -181,8 +181,8 @@ public class PlayCmd extends MusicCommand
                 else
                 {
                     m.editMessage(FormatUtil.filter(event.getClient().getSuccess()+" 已載入 "
-                            +(playlist.getName()==null?"播放清單":"播放清單含有 **"+playlist.getName()+"**")
-                            + playlist.getTracks().size()+" 首歌，已新增至序列!"
+                            +(playlist.getName()==null?"播放清單":"**"+playlist.getName()+"** 播放清單")
+                            + "，共有`"+playlist.getTracks().size()+"`首歌，已新增至序列!"
                             + (count<playlist.getTracks().size() ? "\n"+event.getClient().getWarning()+" 這些歌曲超過可播放總時間(`"
                             + bot.getConfig().getMaxTime()+"`) ，所以無法播放" : ""))).queue();
                 }
@@ -240,7 +240,7 @@ public class PlayCmd extends MusicCommand
                 AudioHandler handler = (AudioHandler)event.getGuild().getAudioManager().getSendingHandler();
                 playlist.loadTracks(bot.getPlayerManager(), (at)->handler.addTrack(new QueuedTrack(at, event.getAuthor())), () -> {
                     StringBuilder builder = new StringBuilder(playlist.getTracks().isEmpty() 
-                            ? event.getClient().getWarning()+" 沒有任何歌曲已讀取" 
+                            ? event.getClient().getWarning()+" 沒有載入任何歌曲" 
                             : event.getClient().getSuccess()+" 已載入 **"+playlist.getTracks().size()+"** 首歌曲！");
                     if(!playlist.getErrors().isEmpty())
                         builder.append("\n這個歌曲無法載入");
