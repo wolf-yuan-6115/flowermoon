@@ -44,7 +44,7 @@ public class PlaylistsCmd extends MusicCommand
             bot.getPlaylistLoader().createFolder();
         if(!bot.getPlaylistLoader().folderExists())
         {
-            event.reply(event.getClient().getWarning()+" `Playlist` 資料夾沒有建立！");
+            event.reply(event.getClient().getWarning()+" `Playlist` 資料夾沒有建立!");
             return;
         }
         List<String> list = bot.getPlaylistLoader().getPlaylistNames();
