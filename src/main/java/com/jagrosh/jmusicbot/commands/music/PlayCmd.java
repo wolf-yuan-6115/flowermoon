@@ -215,7 +215,7 @@ public class PlayCmd extends MusicCommand
             super(bot);
             this.name = "playlist";
             this.aliases = new String[]{"pl"};
-            this.arguments = "<name>";
+            this.arguments = "<播放清單名稱>";
             this.help = "播放播放清單";
             this.beListening = true;
             this.bePlaying = false;
@@ -226,13 +226,13 @@ public class PlayCmd extends MusicCommand
         {
             if(event.getArgs().isEmpty())
             {
-                event.reply(event.getClient().getError()+" 請輸入播放清單名稱！");
+                event.reply(event.getClient().getError()+" 請輸入播放清單名稱!");
                 return;
             }
             Playlist playlist = bot.getPlaylistLoader().getPlaylist(event.getArgs());
             if(playlist==null)
             {
-                event.replyError("我找不到預載播放清單 `"+event.getArgs()+".txt` ！");
+                event.replyError("我找不到預載播放清單 `"+event.getArgs()+".txt` !");
                 return;
             }
             event.getChannel().sendMessage(loadingEmoji+" 正在載入 **"+event.getArgs()+"**... ("+playlist.getItems().size()+" 首歌曲)").queue(m -> 
@@ -241,7 +241,7 @@ public class PlayCmd extends MusicCommand
                 playlist.loadTracks(bot.getPlayerManager(), (at)->handler.addTrack(new QueuedTrack(at, event.getAuthor())), () -> {
                     StringBuilder builder = new StringBuilder(playlist.getTracks().isEmpty() 
                             ? event.getClient().getWarning()+" 沒有載入任何歌曲" 
-                            : event.getClient().getSuccess()+" 已載入 **"+playlist.getTracks().size()+"** 首歌曲！");
+                            : event.getClient().getSuccess()+" 已載入 **"+playlist.getTracks().size()+"** 首歌曲!");
                     if(!playlist.getErrors().isEmpty())
                         builder.append("\n這個歌曲無法載入");
                     playlist.getErrors().forEach(err -> builder.append("\n`[").append(err.getIndex()+1).append("]` **").append(err.getItem()).append("**: ").append(err.getReason()));
