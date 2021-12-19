@@ -30,7 +30,7 @@ public class ShuffleCmd extends MusicCommand
     {
         super(bot);
         this.name = "shuffle";
-        this.help = "shuffles songs you have added";
+        this.help = "打亂序列中的歌曲";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.beListening = true;
         this.bePlaying = true;
@@ -44,13 +44,13 @@ public class ShuffleCmd extends MusicCommand
         switch (s) 
         {
             case 0:
-                event.replyError("You don't have any music in the queue to shuffle!");
+                event.replyError("序列裡面沒有任何歌曲可以打亂!");
                 break;
             case 1:
-                event.replyWarning("You only have one song in the queue!");
+                event.replyWarning("序列裡面只有一首歌曲!");
                 break;
             default:
-                event.replySuccess("You successfully shuffled your "+s+" entries.");
+                event.replySuccess("成功打亂 "+s+" 首歌曲");
                 break;
         }
     }

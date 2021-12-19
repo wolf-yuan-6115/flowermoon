@@ -32,7 +32,7 @@ public class RepeatCmd extends DJCommand
         super(bot);
         this.name = "repeat";
         this.help = "切換重複播放功能";
-        this.arguments = "[關閉|所有|單首]";
+        this.arguments = "[off|all|單首]";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = true;
     }
@@ -51,25 +51,25 @@ public class RepeatCmd extends DJCommand
             else
                 value = RepeatMode.OFF;
         }
-        else if(args.equalsIgnoreCase("false") || args.equalsIgnoreCase("關閉"))
+        else if(args.equalsIgnoreCase("false") || args.equalsIgnoreCase("off"))
         {
             value = RepeatMode.OFF;
         }
-        else if(args.equalsIgnoreCase("true") || args.equalsIgnoreCase("開啟") || args.equalsIgnoreCase("全部"))
+        else if(args.equalsIgnoreCase("true") || args.equalsIgnoreCase("on") || args.equalsIgnoreCase("all"))
         {
             value = RepeatMode.ALL;
         }
-        else if(args.equalsIgnoreCase("one") || args.equalsIgnoreCase("單曲"))
+        else if(args.equalsIgnoreCase("one") || args.equalsIgnoreCase("single"))
         {
             value = RepeatMode.SINGLE;
         }
         else
         {
-            event.replyError("可以使用的參數有： `關閉, 全部或單曲（沒有輸入時會在關閉及全部之間切換)");
+            event.replyError("可以使用的參數有: `off(關閉), all(全部)或single(單曲)（沒有輸入時會在關閉及全部之間切換)`");
             return;
         }
         settings.setRepeatMode(value);
-        event.replySuccess("重複播放狀態目前為： `"+value.getUserFriendlyName()+"`");
+        event.replySuccess("重複播放狀態目前為: `"+value.getUserFriendlyName()+"`");
     }
 
     @Override
