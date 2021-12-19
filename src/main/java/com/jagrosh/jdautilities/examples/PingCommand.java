@@ -25,11 +25,6 @@ import com.jagrosh.jdautilities.examples.doc.Author;
  *
  * @author John Grosh (jagrosh)
  */
-@CommandInfo(
-    name = {"Ping", "Pong"},
-    description = "查看機器人延遲"
-)
-@Author("John Grosh (jagrosh)")
 public class PingCommand extends Command {
 
     public PingCommand()
