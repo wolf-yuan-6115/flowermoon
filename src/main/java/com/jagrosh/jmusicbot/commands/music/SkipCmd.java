@@ -52,9 +52,9 @@ public class SkipCmd extends MusicCommand
             int listeners = (int)event.getSelfMember().getVoiceState().getChannel().getMembers().stream()
                     .filter(m -> !m.getUser().isBot() && !m.getVoiceState().isDeafened()).count();
             String msg;
-            if(handler.getVotes().contains(event.getAuthor().getId()))
+            if(handler.getVotes().contains(event.getAuthor().getId())) {
                 msg = event.getClient().getWarning()+" 你已經投過跳過 `[";
-            else
+            } else
             {
                 msg = event.getClient().getSuccess()+" 投票跳過 `[";
                 handler.getVotes().add(event.getAuthor().getId());
@@ -66,7 +66,7 @@ public class SkipCmd extends MusicCommand
             if(skippers>=required)
             {
                 msg += "\n" + event.getClient().getSuccess() + " 已跳過 **" + handler.getPlayer().getPlayingTrack().getInfo().title
-                    + "** " + (rm.getOwner() == 0L ? "(自動播放))" : "(由 **" + rm.user.username + "**點播)");
+                    + "** " + (rm.getOwner() == 0L ? "(自動播放)" : "(由 **" + rm.user.username + "**點播)");
                 handler.getPlayer().stopTrack();
             }
             event.reply(msg);

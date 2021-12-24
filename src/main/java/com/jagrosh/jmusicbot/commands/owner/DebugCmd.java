@@ -40,7 +40,7 @@ public class DebugCmd extends OwnerCommand
     {
         this.bot = bot;
         this.name = "debug";
-        this.help = "shows debug info";
+        this.help = "顯示偵錯資訊";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = false;
     }
@@ -49,11 +49,11 @@ public class DebugCmd extends OwnerCommand
     protected void execute(CommandEvent event)
     {
         StringBuilder sb = new StringBuilder();
-        sb.append("```\nSystem Properties:");
+        sb.append("系統資訊:");
         for(String key: PROPERTIES)
             sb.append("\n  ").append(key).append(" = ").append(System.getProperty(key));
-        sb.append("\n\nJMusicBot Information:")
-                .append("\n  Version = ").append(OtherUtil.getCurrentVersion())
+        sb.append("\n\n花月資訊:")
+                .append("\n  版本 = ").append(OtherUtil.getCurrentVersion())
                 .append("\n  Owner = ").append(bot.getConfig().getOwnerId())
                 .append("\n  Prefix = ").append(bot.getConfig().getPrefix())
                 .append("\n  AltPrefix = ").append(bot.getConfig().getAltPrefix())
@@ -63,25 +63,25 @@ public class DebugCmd extends OwnerCommand
                 .append("\n  StayInChannel = ").append(bot.getConfig().getStay())
                 .append("\n  UseEval = ").append(bot.getConfig().useEval())
                 .append("\n  UpdateAlerts = ").append(bot.getConfig().useUpdateAlerts());
-        sb.append("\n\nDependency Information:")
-                .append("\n  JDA Version = ").append(JDAInfo.VERSION)
-                .append("\n  JDA-Utilities Version = ").append(JDAUtilitiesInfo.VERSION)
-                .append("\n  Lavaplayer Version = ").append(PlayerLibrary.VERSION);
+        sb.append("\n\n程式庫資訊:")
+                .append("\n  JDA 版本 = ").append(JDAInfo.VERSION)
+                .append("\n  JDA-Utilities 版本 = ").append(JDAUtilitiesInfo.VERSION)
+                .append("\n  Lavaplayer 版本 = ").append(PlayerLibrary.VERSION);
         long total = Runtime.getRuntime().totalMemory() / 1024 / 1024;
         long used = total - (Runtime.getRuntime().freeMemory() / 1024 / 1024);
-        sb.append("\n\nRuntime Information:")
-                .append("\n  Total Memory = ").append(total)
-                .append("\n  Used Memory = ").append(used);
-        sb.append("\n\nDiscord Information:")
+        sb.append("\n\n主機資訊:")
+                .append("\n  全部記憶體 = ").append(total)
+                .append("\n  已用記憶體 = ").append(used);
+        sb.append("\n\nDiscord 資訊:")
                 .append("\n  ID = ").append(event.getJDA().getSelfUser().getId())
-                .append("\n  Guilds = ").append(event.getJDA().getGuildCache().size())
-                .append("\n  Users = ").append(event.getJDA().getUserCache().size());
-        sb.append("\n```");
+                .append("\n  伺服器數量 = ").append(event.getJDA().getGuildCache().size())
+                .append("\n  使用者數量 = ").append(event.getJDA().getUserCache().size());
+        sb.append("\n");
         
         if(event.isFromType(ChannelType.PRIVATE) 
                 || event.getSelfMember().hasPermission(event.getTextChannel(), Permission.MESSAGE_ATTACH_FILES))
             event.getChannel().sendFile(sb.toString().getBytes(), "debug_information.txt").queue();
         else
-            event.reply("Debug Information: " + sb.toString());
+            event.reply("偵錯資訊: " + sb.toString());
     }
 }
