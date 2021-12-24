@@ -34,11 +34,6 @@ import java.awt.*;
  *
  * @author John Grosh (jagrosh)
  */
-@CommandInfo(
-    name = "About",
-    description = "顯示關於機器人的資訊"
-)
-@Author("John Grosh (jagrosh)")
 public class AboutCommand extends Command {
     private boolean IS_AUTHOR = true;
     private String REPLACEMENT_ICON = "+";
