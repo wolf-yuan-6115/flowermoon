@@ -65,7 +65,7 @@ public class RepeatCmd extends DJCommand
         }
         else
         {
-            event.replyError("可以使用的參數有: `off(關閉), all(全部)或single(單曲)（沒有輸入時會在關閉及全部之間切換)`");
+            event.replyError("可以使用的參數有: `off(關閉), all(全部)或single(單曲)，沒有輸入時會在關閉及全部之間切換`");
             return;
         }
         settings.setRepeatMode(value);
