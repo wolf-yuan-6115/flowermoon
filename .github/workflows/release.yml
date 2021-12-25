@@ -24,7 +24,7 @@ jobs:
         uses: "marvinpinto/action-automatic-releases@latest"
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
-          automatic_release_tag: "${{ env.TAG }}"
+          automatic_release_tag: "CI-${{ env.TAG }}"
           prerelease: false
           title: "Build release tag ${{ env.TAG }}"
           files: "target/*-All.jar"
