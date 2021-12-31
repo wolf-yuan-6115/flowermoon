@@ -29,8 +29,8 @@ public class SetnameCmd extends OwnerCommand
     public SetnameCmd(Bot bot)
     {
         this.name = "setname";
-        this.help = "sets the name of the bot";
-        this.arguments = "<name>";
+        this.help = "設定機器人名稱";
+        this.arguments = "<名稱>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = false;
     }
@@ -42,15 +42,15 @@ public class SetnameCmd extends OwnerCommand
         {
             String oldname = event.getSelfUser().getName();
             event.getSelfUser().getManager().setName(event.getArgs()).complete(false);
-            event.reply(event.getClient().getSuccess()+" Name changed from `"+oldname+"` to `"+event.getArgs()+"`");
+            event.reply(event.getClient().getSuccess()+" 成功將名稱從 `"+oldname+"` 變更成 `"+event.getArgs()+"`");
         } 
         catch(RateLimitedException e) 
         {
-            event.reply(event.getClient().getError()+" Name can only be changed twice per hour!");
+            event.reply(event.getClient().getError()+" 一個小時只能變更兩次名稱!");
         }
         catch(Exception e) 
         {
-            event.reply(event.getClient().getError()+" That name is not valid!");
+            event.reply(event.getClient().getError()+" 無效的名稱!");
         }
     }
 }
