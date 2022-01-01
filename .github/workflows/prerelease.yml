@@ -26,9 +26,9 @@ jobs:
         run: mvn clean package
       - name: "Insert require native library to run on armhf"
         run: |
-          mv target/Flowermoon-*-All.jar .
-          jar -uf Flowermoon-*-All.jar natives/linux-arm/libconnector.so
-          mv -f Flowermoon-*-.jar target/
+          mv target/Flowermoon*-All.jar .
+          jar -uf Flowermoon*-All.jar natives/linux-arm/libconnector.so
+          mv Flowermoon*-All.jar target/
       - name: "Get commit SHA"
         run: echo "GITHUB_SHA_SHORT=$(git rev-parse --short $GITHUB_SHA)" >> $GITHUB_ENV
       - name: "Release Jar file"
