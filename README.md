@@ -1,6 +1,9 @@
 # 花月 - JMusic中文翻譯版本，建立於v0.3.6上
-## 注意：中文翻譯尚未全部完全
 一個跨平台，擁有簡潔介面、簡易使用的Discord音樂機器人！
+
+![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat-square&logo=java&logoColor=white)
+[![Discord](https://img.shields.io/discord/919397696282984468?color=%235865F2&label=Discord&logo=discord&logoColor=fff&style=flat-square)](https://discord.gg/NHBVzRUfNM)
+[![GitHub Workflow Status](https://img.shields.io/github/workflow/status/wolf-yuan-6115/flowermoon/Pre-release?label=Actions&logo=GitHub%20actions&logoColor=fff&style=flat-square)](https://github.com/wolf-yuan-6115/flowermoon/actions)
 
 [![Setup](http://i.imgur.com/VvXYp5j.png)](https://jmusicbot.com/setup)
 > 此音樂機器人為JMusic修改版，可以直接使用Jmusic現有的設置檔案
