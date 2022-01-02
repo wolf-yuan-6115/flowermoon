@@ -1,3 +1,4 @@
+# Main (Java) ignore patterns
 target/
 pom.xml.tag
 pom.xml.releaseBackup
@@ -20,3 +21,6 @@ buildNumber.properties
 *.tar.gz
 *.rar
 hs_err_pid*
+
+# Docs (Nodejs) ignore patterns
+docs/node_modules
