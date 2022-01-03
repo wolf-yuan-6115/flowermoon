@@ -29,8 +29,8 @@ public class SetstatusCmd extends OwnerCommand
     public SetstatusCmd(Bot bot)
     {
         this.name = "setstatus";
-        this.help = "sets the status the bot displays";
-        this.arguments = "<status>";
+        this.help = "設定機器人的上線狀態";
+        this.arguments = "<上線狀態>";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = false;
     }
@@ -42,15 +42,15 @@ public class SetstatusCmd extends OwnerCommand
             OnlineStatus status = OnlineStatus.fromKey(event.getArgs());
             if(status==OnlineStatus.UNKNOWN)
             {
-                event.replyError("Please include one of the following statuses: `ONLINE`, `IDLE`, `DND`, `INVISIBLE`");
+                event.replyError("請輸入以下的上線狀態: `ONLINE`, `IDLE`, `DND`, `INVISIBLE`");
             }
             else
             {
                 event.getJDA().getPresence().setStatus(status);
-                event.replySuccess("Set the status to `"+status.getKey().toUpperCase()+"`");
+                event.replySuccess("成功設定成 `"+status.getKey().toUpperCase()+"` 上限狀態");
             }
         } catch(Exception e) {
-            event.reply(event.getClient().getError()+" The status could not be set!");
+            event.reply(event.getClient().getError()+" 設定上線狀態時發生錯誤!");
         }
     }
 }

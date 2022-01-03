@@ -34,7 +34,7 @@ public class AutoplaylistCmd extends OwnerCommand
         this.guildOnly = true;
         this.name = "autoplaylist";
         this.arguments = "<名稱|NONE>";
-        this.help = "設定伺服器的預設播放清單ㄋ";
+        this.help = "設定伺服器的預設播放清單";
         this.aliases = bot.getConfig().getAliases(this.name);
     }
 

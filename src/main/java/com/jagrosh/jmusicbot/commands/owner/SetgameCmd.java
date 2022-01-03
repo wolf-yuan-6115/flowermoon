@@ -29,8 +29,8 @@ public class SetgameCmd extends OwnerCommand
     public SetgameCmd(Bot bot)
     {
         this.name = "setgame";
-        this.help = "sets the game the bot is playing";
-        this.arguments = "[action] [game]";
+        this.help = "設定機器人的狀態";
+        this.arguments = "[動作] [名稱]";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = false;
         this.children = new OwnerCommand[]{
@@ -48,11 +48,11 @@ public class SetgameCmd extends OwnerCommand
         {
             event.getJDA().getPresence().setActivity(title.isEmpty() ? null : Activity.playing(title));
             event.reply(event.getClient().getSuccess()+" **"+event.getSelfUser().getName()
-                    +"** is "+(title.isEmpty() ? "no longer playing anything." : "now playing `"+title+"`"));
+                    +"** 目前"+(title.isEmpty() ? "機器人沒有任何狀態" : "機器人的狀態是 `"+title+"`"));
         }
         catch(Exception e)
         {
-            event.reply(event.getClient().getError()+" The game could not be set!");
+            event.reply(event.getClient().getError()+" 設置狀態時發生錯誤!");
         }
     }
     
@@ -62,8 +62,8 @@ public class SetgameCmd extends OwnerCommand
         {
             this.name = "stream";
             this.aliases = new String[]{"twitch","streaming"};
-            this.help = "sets the game the bot is playing to a stream";
-            this.arguments = "<username> <game>";
+            this.help = "設定機器人狀態成為'直播中'";
+            this.arguments = "<使用者名稱> <狀態>";
             this.guildOnly = false;
         }
 
@@ -73,18 +73,18 @@ public class SetgameCmd extends OwnerCommand
             String[] parts = event.getArgs().split("\\s+", 2);
             if(parts.length<2)
             {
-                event.replyError("Please include a twitch username and the name of the game to 'stream'");
+                event.replyError("請輸入Twitch使用者名稱來設定狀態");
                 return;
             }
             try
             {
                 event.getJDA().getPresence().setActivity(Activity.streaming(parts[1], "https://twitch.tv/"+parts[0]));
                 event.replySuccess("**"+event.getSelfUser().getName()
-                        +"** is now streaming `"+parts[1]+"`");
+                        +"** 正在直播 `"+parts[1]+"`");
             }
             catch(Exception e)
             {
-                event.reply(event.getClient().getError()+" The game could not be set!");
+                event.reply(event.getClient().getError()+" 設定狀態時發生錯誤!");
             }
         }
     }
@@ -95,8 +95,8 @@ public class SetgameCmd extends OwnerCommand
         {
             this.name = "listen";
             this.aliases = new String[]{"listening"};
-            this.help = "sets the game the bot is listening to";
-            this.arguments = "<title>";
+            this.help = "設定機器人狀態成為'聆聽中'";
+            this.arguments = "<標題>";
             this.guildOnly = false;
         }
 
@@ -105,16 +105,16 @@ public class SetgameCmd extends OwnerCommand
         {
             if(event.getArgs().isEmpty())
             {
-                event.replyError("Please include a title to listen to!");
+                event.replyError("請輸入標題!");
                 return;
             }
             String title = event.getArgs().toLowerCase().startsWith("to") ? event.getArgs().substring(2).trim() : event.getArgs();
             try
             {
                 event.getJDA().getPresence().setActivity(Activity.listening(title));
-                event.replySuccess("**"+event.getSelfUser().getName()+"** is now listening to `"+title+"`");
+                event.replySuccess("**"+event.getSelfUser().getName()+"** 目前正在聆聽 `"+title+"`");
             } catch(Exception e) {
-                event.reply(event.getClient().getError()+" The game could not be set!");
+                event.reply(event.getClient().getError()+" 設置狀態時發生錯誤!");
             }
         }
     }
@@ -125,8 +125,8 @@ public class SetgameCmd extends OwnerCommand
         {
             this.name = "watch";
             this.aliases = new String[]{"watching"};
-            this.help = "sets the game the bot is watching";
-            this.arguments = "<title>";
+            this.help = "設定機器人狀態成為'觀看中'";
+            this.arguments = "<標題>";
             this.guildOnly = false;
         }
 
@@ -135,16 +135,16 @@ public class SetgameCmd extends OwnerCommand
         {
             if(event.getArgs().isEmpty())
             {
-                event.replyError("Please include a title to watch!");
+                event.replyError("請輸入標題!");
                 return;
             }
             String title = event.getArgs();
             try
             {
                 event.getJDA().getPresence().setActivity(Activity.watching(title));
-                event.replySuccess("**"+event.getSelfUser().getName()+"** is now watching `"+title+"`");
+                event.replySuccess("**"+event.getSelfUser().getName()+"** 目前正在聆聽 `"+title+"`");
             } catch(Exception e) {
-                event.reply(event.getClient().getError()+" The game could not be set!");
+                event.reply(event.getClient().getError()+" 設置狀態時發生錯誤!");
             }
         }
     }

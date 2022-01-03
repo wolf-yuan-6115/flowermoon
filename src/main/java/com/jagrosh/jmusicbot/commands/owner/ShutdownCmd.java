@@ -31,7 +31,7 @@ public class ShutdownCmd extends OwnerCommand
     {
         this.bot = bot;
         this.name = "shutdown";
-        this.help = "safely shuts down";
+        this.help = "安全的關閉機器人";
         this.aliases = bot.getConfig().getAliases(this.name);
         this.guildOnly = false;
     }
@@ -39,7 +39,7 @@ public class ShutdownCmd extends OwnerCommand
     @Override
     protected void execute(CommandEvent event)
     {
-        event.replyWarning("Shutting down...");
+        event.replyWarning("關機中...");
         bot.shutdown();
     }
 }
