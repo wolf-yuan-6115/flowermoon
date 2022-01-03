@@ -1,2 +1,8 @@
 tasks:
-  - init: mvn install -DskipTests=false
+  - name: Init container
+    init: |
+      mkdir -p ~/.m2/repository/com/sedmelluq/lavaplayer-natives-extra/1.3.13
+      wget "https://github.com/sedmelluq/lavaplayer/files/6563671/lavaplayer-natives-extra-1.3.13.zip" -O ~/.m2/repository/com/sedmelluq/lavaplayer-natives-extra/1.3.13/tmp.zip
+      unzip ~/.m2/repository/com/sedmelluq/lavaplayer-natives-extra/1.3.13/tmp.zip -d ~/.m2/repository/com/sedmelluq/lavaplayer-natives-extra/1.3.13/
+      rm ~/.m2/repository/com/sedmelluq/lavaplayer-natives-extra/1.3.13/tmp.zip
+      mvn install -DskipTests=false
