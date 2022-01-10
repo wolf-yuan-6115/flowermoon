@@ -64,7 +64,7 @@ jobs:
           file: Dockerfile
           builder: ${{ steps.buildx.outputs.name }}
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flowermoon:prebuild-${{ env.GITHUB_SHA_SHORT }}
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/flowermoon:${{ env.GITHUB_SHA_SHORT }}
           cache-from: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/flowermoon:buildcache
           cache-to: type=registry,ref=${{ secrets.DOCKER_HUB_USERNAME }}/flowermoon:buildcache,mode=max
 
