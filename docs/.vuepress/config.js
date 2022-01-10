@@ -1,6 +1,6 @@
 module.exports = {
-  title: "Black cat文檔",
-  description: "Discord Black cat機器人的指令列表",
+  title: "花月文檔",
+  description: "花月的安裝&使用說明",
   theme: 'antdocs',
   head: [
     ['link', { rel: 'icon', href: '/favicon.png' }]
