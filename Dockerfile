@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk8:ubuntu
+FROM eclipse-temurin:8-jdk-focal
 
 RUN apt update && \
   apt -y upgrade && \
