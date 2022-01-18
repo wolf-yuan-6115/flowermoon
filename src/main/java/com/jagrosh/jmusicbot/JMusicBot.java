@@ -80,7 +80,7 @@ public class JMusicBot
         Bot bot = new Bot(waiter, config, settings);
         
         AboutCommand aboutCommand = new AboutCommand(Color.BLUE.brighter(),
-                                "一個 [可以自己運行的音樂機器人](https://github.com/wolf-yuan-6115/flowermoon) (v"+version+")",
+                                "一個 [可以自己運行的音樂機器人](https://github.com/wolf-yuan-6115/flowermoon) ("+version+")",
                                 new String[]{"高品質的音樂", "FairQueue™ 技術"},
                                 RECOMMENDED_PERMS);
         aboutCommand.setIsAuthor(false);
