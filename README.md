@@ -38,10 +38,10 @@
   * MP3
   * FLAC
   * WAV
-  * Matroska/WebM (AAC, Opus or Vorbis 編碼)
-  * MP4/M4A (AAC codec)
-  * OGG streams (Opus, Vorbis and FLAC 編碼)
-  * AAC streams
+  * Matroska/WebM (AAC, Opus 或 Vorbis 編碼)
+  * MP4/M4A (AAC 編碼)
+  * OGG格式 (Opus, Vorbis 和 FLAC 編碼)
+  * AAC格式
   * 直播播放清單 (M3U and PLS)
 
 ## 配置
