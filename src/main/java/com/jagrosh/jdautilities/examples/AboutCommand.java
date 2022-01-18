@@ -82,8 +82,8 @@ public class AboutCommand extends Command {
         builder.setAuthor(event.getSelfUser().getName() + " 的個人資料!", null, event.getSelfUser().getAvatarUrl());
         boolean join = !(event.getClient().getServerInvite() == null || event.getClient().getServerInvite().isEmpty());
         boolean inv = !oauthLink.isEmpty();
-        String invline = "\n" + (join ? "Join my server [`here`](" + event.getClient().getServerInvite() + ")" : (inv ? "Please " : "")) 
-                + (inv ? (join ? ", or " : "") + "[`invite`](" + oauthLink + ") me to your server" : "") + "!";
+        String invline = "\n" + (join ? "Join my server [`here`](" + event.getClient().getServerInvite() + ")" : (inv ? "請 " : "")) 
+                + (inv ? (join ? ", 或 " : "") + "[`邀請`](" + oauthLink + ") 我到你的伺服器" : "") + "!";
         String author = event.getJDA().getUserById(event.getClient().getOwnerId())==null ? "<@" + event.getClient().getOwnerId()+">" 
                 : event.getJDA().getUserById(event.getClient().getOwnerId()).getName();
         StringBuilder descr = new StringBuilder().append("你好! 我是 **").append(event.getSelfUser().getName()).append("**, ")

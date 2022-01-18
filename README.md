@@ -10,6 +10,8 @@
 >
 > 花月Discord伺服器: [官方伺服器](https://discord.gg/NHBVzRUfNM)
 
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wolf-yuan-6115/flowermoon)
+
 ## 功能
   * 容易託管 (只需要確定Java已經安裝在您的電腦上)
   * 載入音樂速度快
