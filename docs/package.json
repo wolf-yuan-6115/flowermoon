@@ -1,8 +1,0 @@
-{
-  "main": ".vuepress/config.js",
-  "author": "Wolf yuan",
-  "devDependencies": {
-    "vuepress": "^1.8.2",
-    "vuepress-theme-api": "^1.0.1"
-  }
-}
