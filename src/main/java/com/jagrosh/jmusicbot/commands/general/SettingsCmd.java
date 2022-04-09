@@ -66,9 +66,9 @@ public class SettingsCmd extends Command
                         + "\n預設播放清單: " + (s.getDefaultPlaylist() == null ? "*未設置*" : "**" + s.getDefaultPlaylist() + "**")
                         )
                 .setFooter(event.getJDA().getGuilds().size() + " 個伺服器 | "
-                        + event.getJDA().getGuilds().stream().filter(g -> g.getSelfMember().getVoiceState().inVoiceChannel()).count()
+                        + event.getJDA().getGuilds().stream().filter(g -> g.getSelfMember().getVoiceState().inAudioChannel()).count()
                         + " 個語音連線", null);
-        event.getChannel().sendMessage(builder.setEmbed(ebuilder.build()).build()).queue();
+        event.getChannel().sendMessage(builder.setEmbeds(ebuilder.build()).build()).queue();
     }
     
 }
