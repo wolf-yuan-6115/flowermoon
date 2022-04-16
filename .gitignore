@@ -21,6 +21,8 @@ buildNumber.properties
 *.tar.gz
 *.rar
 hs_err_pid*
+config.txt
+serversettings.json
 
 # Docs (Nodejs) ignore patterns
 docs/node_modules
