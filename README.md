@@ -5,8 +5,6 @@
 ![Java](https://img.shields.io/badge/Java-%23ED8B00.svg?style=flat-square&logo=java&logoColor=white)
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/wolf-yuan-6115/flowermoon/Pre-release?label=Actions&logo=GitHub%20actions&logoColor=fff&style=flat-square)](https://github.com/wolf-yuan-6115/flowermoon/actions)
 
-[![Setup](http://i.imgur.com/VvXYp5j.png)](https://jmusicbot.com/setup)
-
 > 此音樂機器人為 JMusic 修改版，可以直接使用 Jmusic 現有的設置檔案
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wolf-yuan-6115/flowermoon)
