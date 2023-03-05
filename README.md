@@ -1,4 +1,4 @@
-# 花月 - JMusic 中文翻譯版本，建立於版本 0.3.8 上
+# 花月 - JMusic 中文翻譯版本
 
 一個跨平台，擁有簡潔介面、簡易使用的 Discord 音樂機器人！
 
@@ -6,19 +6,18 @@
 [![GitHub Workflow Status](https://img.shields.io/github/workflow/status/wolf-yuan-6115/flowermoon/Pre-release?label=Actions&logo=GitHub%20actions&logoColor=fff&style=flat-square)](https://github.com/wolf-yuan-6115/flowermoon/actions)
 
 > 此音樂機器人為 JMusic 修改版，可以直接使用 Jmusic 現有的設置檔案
-
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/wolf-yuan-6115/flowermoon)
+> 目前 JMusic 版本: 0.3.9
 
 ## 功能
 
-- 容易託管 (只需要確定 Java 已經安裝在您的電腦上)
-- 載入音樂速度快
+- 容易託管 (只需要安裝 Java)
+- 快速載入音樂
 - 沒有需要提供其他 API 金鑰 (除了 Discord 機器人 Token)
-- 順暢的音樂播放器
-- 伺服器可自訂"DJ"身分組
+- 流暢的音樂播放器
+- 可自訂伺服器"DJ"身分組
 - 美麗、簡潔的選單
-- 支援許多音樂來源，例如 YouTube, SoundCloud 及更多平台！
-- 支援許多廣播/直播來源
+- 支援許多音樂來源，例如 YouTube, SoundCloud 等等
+- 支援許多廣播、直播來源
 - 可播放本地檔案
 - 播放清單支援 (包含 YouTube 及本地播放清單)
 
@@ -51,6 +50,6 @@
 
 請前往 [英文網頁](https://jmusicbot.com/setup) 來自己運行機器人！
 
-> 注意： 請勿在網頁上下載英文版 Jmusic bot
+> 注意： 網頁上的檔案為英文版本
 >
 > 請前往 [此網頁](https://github.com/wolf-yuan-6115/flowermoon/releases/latest) 下載中文版的 Jmusic bot!
