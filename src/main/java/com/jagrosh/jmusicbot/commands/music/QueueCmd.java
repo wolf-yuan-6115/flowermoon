@@ -78,7 +78,7 @@ public class QueueCmd extends MusicCommand
             Message nonowp = ah.getNoMusicPlaying(event.getJDA());
             Message built = new MessageBuilder()
                     .setContent(event.getClient().getWarning() + " 沒有歌曲在序列中!")
-                    .setEmbed((nowp==null ? nonowp : nowp).getEmbeds().get(0)).build();
+                    .setEmbeds((nowp==null ? nonowp : nowp).getEmbeds().get(0)).build();
             event.reply(built, m -> 
             {
                 if(nowp!=null)
@@ -108,7 +108,7 @@ public class QueueCmd extends MusicCommand
         StringBuilder sb = new StringBuilder();
         if(ah.getPlayer().getPlayingTrack()!=null)
         {
-            sb.append(ah.getPlayer().isPaused() ? JMusicBot.PAUSE_EMOJI : JMusicBot.PLAY_EMOJI).append(" **")
+            sb.append(ah.getStatusEmoji()).append(" **")
                     .append(ah.getPlayer().getPlayingTrack().getInfo().title).append("**\n");
         }
         return FormatUtil.filter(sb.append(success).append(" 播放序列 | ").append(songslength)

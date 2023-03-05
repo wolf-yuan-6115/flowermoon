@@ -21,7 +21,6 @@ import com.jagrosh.jdautilities.examples.command.*;
 import com.jagrosh.jmusicbot.commands.admin.*;
 import com.jagrosh.jmusicbot.commands.dj.*;
 import com.jagrosh.jmusicbot.commands.general.*;
-import com.jagrosh.jmusicbot.commands.general.AboutCommand;
 import com.jagrosh.jmusicbot.commands.music.*;
 import com.jagrosh.jmusicbot.commands.owner.*;
 import com.jagrosh.jmusicbot.entities.Prompt;
@@ -44,36 +43,43 @@ import org.slf4j.LoggerFactory;
  */
 public class JMusicBot 
 {
-    public final static String PLAY_EMOJI  = "\u25B6"; // ▶
-    public final static String PAUSE_EMOJI = "\u23F8"; // ⏸
-    public final static String STOP_EMOJI  = "\u23F9"; // ⏹
+    public final static Logger LOG = LoggerFactory.getLogger(JMusicBot.class);
     public final static Permission[] RECOMMENDED_PERMS = {Permission.MESSAGE_READ, Permission.MESSAGE_WRITE, Permission.MESSAGE_HISTORY, Permission.MESSAGE_ADD_REACTION,
                                 Permission.MESSAGE_EMBED_LINKS, Permission.MESSAGE_ATTACH_FILES, Permission.MESSAGE_MANAGE, Permission.MESSAGE_EXT_EMOJI,
                                 Permission.MANAGE_CHANNEL, Permission.VOICE_CONNECT, Permission.VOICE_SPEAK, Permission.NICKNAME_CHANGE};
     public final static GatewayIntent[] INTENTS = {GatewayIntent.DIRECT_MESSAGES, GatewayIntent.GUILD_MESSAGES, GatewayIntent.GUILD_MESSAGE_REACTIONS, GatewayIntent.GUILD_VOICE_STATES};
+    
     /**
      * @param args the command line arguments
      */
     public static void main(String[] args)
     {
-        // startup log
-        Logger log = LoggerFactory.getLogger("啟動");
-        
+        if(args.length > 0)
+            switch(args[0].toLowerCase())
+            {
+                case "generate-config":
+                    BotConfig.writeDefaultConfig();
+                    return;
+                default:
+            }
+        startBot();
+    }
+
+    private static void startBot()
+    {
         // create prompt to handle startup
-        Prompt prompt = new Prompt("機器人", "正在切換到無視窗模式，您可以使用 -Dnogui=false 來關閉這個功能");
+        Prompt prompt = new Prompt("花月 (JMusic)");
         
-        // get and check latest version
-        String version = OtherUtil.checkVersion(prompt);
-        
-        // check for valid java version
-        if(!System.getProperty("java.vm.name").contains("64"))
-            prompt.alert(Prompt.Level.WARNING, "Java版本", "您的Java可能無法跟此程式相容，請使用64位元的Java");
+        // startup checks
+        OtherUtil.checkVersion(prompt);
+        OtherUtil.checkJavaVersion(prompt);
         
         // load config
         BotConfig config = new BotConfig(prompt);
         config.load();
         if(!config.isValid())
             return;
+        LOG.info("成功從 " + config.getConfigLocation() + " 載入配置檔案");
         
         // set up the listener
         EventWaiter waiter = new EventWaiter();
@@ -81,7 +87,7 @@ public class JMusicBot
         Bot bot = new Bot(waiter, config, settings);
         
         AboutCommand aboutCommand = new AboutCommand(Color.BLUE.brighter(),
-                                "一個 [可以自己運行的音樂機器人](https://github.com/wolf-yuan-6115/flowermoon) ("+version+")",
+                                "一個 [可以自己運行的音樂機器人](https://github.com/wolf-yuan-6115/flowermoon) (" + OtherUtil.getCurrentVersion() + ")",
                                 new String[]{"高品質的音樂", "FairQueue™ 技術"},
                                 RECOMMENDED_PERMS);
         aboutCommand.setIsAuthor(false);
@@ -160,11 +166,9 @@ public class JMusicBot
             } 
             catch(Exception e) 
             {
-                log.error("無法開啟視窗，如果您的伺服器或電腦沒有螢幕，請使用 -Dnogui=true 來啟動機器人");
+                LOG.error("無法開啟視窗，如果您的伺服器或電腦沒有螢幕，請使用 -Dnogui=true 來啟動機器人");
             }
         }
-        
-        log.info("成功從 " + config.getConfigLocation() + " 讀取配置");
         
         // attempt to log in and start
         try

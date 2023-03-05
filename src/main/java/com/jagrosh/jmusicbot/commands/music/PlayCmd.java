@@ -173,7 +173,12 @@ public class PlayCmd extends MusicCommand
             else
             {
                 int count = loadPlaylist(playlist, null);
-                if(count==0)
+                if(playlist.getTracks().size() == 0)
+                {
+                    m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" The playlist "+(playlist.getName()==null ? "" : "(**"+playlist.getName()
+                            +"**) ")+" could not be loaded or contained 0 entries")).queue();
+                }
+                else if(count==0)
                 {
                     m.editMessage(FormatUtil.filter(event.getClient().getWarning()+" 播放清單內的歌曲 "+(playlist.getName()==null ? "" : "(**"+playlist.getName()
                             +"**) 已經超過可以播放的總時間")+" (`"+bot.getConfig().getMaxTime()+"`)")).queue();

@@ -27,7 +27,7 @@
     <dependency>
       <groupId>net.dv8tion</groupId>
       <artifactId>JDA</artifactId>
-      <version>4.3.0_324</version>
+      <version>4.4.1_353</version>
     </dependency>
     <!-- using a fork of this to fix some issues faster -->
     <!--dependency>
@@ -55,7 +55,7 @@
     <dependency>
       <groupId>com.github.jagrosh</groupId>
       <artifactId>JLyrics</artifactId>
-      <version>-SNAPSHOT</version>
+      <version>master-SNAPSHOT</version>
     </dependency>
     <!--dependency>
       <groupId>com.jagrosh</groupId>
@@ -75,7 +75,7 @@
     <dependency>
       <groupId>org.jsoup</groupId>
       <artifactId>jsoup</artifactId>
-      <version>1.14.2</version>
+      <version>1.15.3</version>
     </dependency>
     <dependency>
       <groupId>junit</groupId>
